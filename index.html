@@ -2,131 +2,171 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Search the web and explore stories on Joseph Saby.">
-<title>Joseph Saby</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A campaign website template with priorities, endorsements, and ways to get involved.">
+<title>Campaign Name · Campaign website template</title>
 <style>
-  :root { color-scheme: light; --ink:#172d2b; --muted:#4d6561; --paper:#f8faf7; --line:#d8e3dd; --accent:#11614d; }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.5 system-ui,sans-serif; }
-  a { color:inherit; }
-  a:hover { color:var(--accent); }
-  :focus-visible { outline:3px solid #c3792e; outline-offset:4px; }
-  .wrap { width:min(1160px, calc(100% - 36px)); margin:auto; }
-  header { background:#fff; border-bottom:1px solid var(--line); }
-  .mast { display:flex; align-items:center; gap:30px; padding:23px 0; }
-  .brand { text-decoration:none; font:700 clamp(30px,4vw,42px)/1 Georgia,serif; letter-spacing:-.06em; white-space:nowrap; }
-  .brand span { color:#bd6c24; }
-  form { display:flex; width:min(100%,550px); margin-left:auto; }
-  input,button { font:inherit; }
-  input { width:100%; min-width:0; border:1px solid #8da49a; border-radius:10px 0 0 10px; padding:11px 14px; }
-  button { cursor:pointer; }
-  form button { background:var(--accent); color:#fff; border:0; padding:0 19px; border-radius:0 10px 10px 0; font-weight:700; }
-  nav { display:flex; flex-wrap:wrap; gap:8px; padding:0 0 14px; }
-  nav button { border:1px solid transparent; background:transparent; color:var(--ink); padding:7px 13px; border-radius:8px; }
-  nav button:hover { border-color:var(--line); }
-  nav button[aria-pressed="true"] { background:#e0eee6; color:#154d3e; font-weight:700; }
-  main { padding:27px 0 36px; }
-  h1,h2,h3,p { margin:0; }
-  h1,h2,h3 { font-family:Georgia,serif; line-height:1.12; }
-  h1 { font-size:clamp(35px,6vw,60px); letter-spacing:-.055em; }
-  .intro { display:flex; align-items:baseline; flex-wrap:wrap; gap:10px 18px; margin-bottom:23px; }
-  .intro p, .muted { color:var(--muted); }
-  .layout { display:grid; grid-template-columns:minmax(0, 2.5fr) minmax(245px,1fr); gap:25px; align-items:start; }
-  .lead,.card,.panel { border:1px solid var(--line); border-radius:15px; overflow:hidden; background:#fff; }
-  .lead img { width:100%; display:block; aspect-ratio:2.15; object-fit:cover; background:#dae7df; }
-  .copy { padding:20px; }
-  .tag { color:var(--accent); font-size:.86rem; font-weight:750; margin-bottom:8px; }
-  .lead h2 { font-size:clamp(25px,4vw,38px); }
-  h2 a,h3 a { text-decoration:none; }
-  h2 a:hover,h3 a:hover { text-decoration:underline; }
-  .copy .muted { margin-top:9px; }
-  #browse-title { margin:26px 0 13px; font-size:28px; }
-  .cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-  .card img { display:block; width:100%; aspect-ratio:2; object-fit:cover; background:#dae7df; }
-  .card h3 { font-size:23px; }
-  .card .copy { padding:16px; }
-  .panel { padding:20px; margin-bottom:16px; }
-  .panel h2 { font-size:25px; margin-bottom:12px; }
-  .panel a { display:block; padding:10px 0; border-top:1px solid var(--line); text-decoration:none; }
-  .panel a:hover { text-decoration:underline; }
-  .weather { background:#e6f0e9; }
-  .weather a { margin-top:12px; font-weight:700; }
-  footer { color:var(--muted); border-top:1px solid var(--line); padding:20px 0; }
-  @media(max-width:760px) { .layout { grid-template-columns:1fr; } .mast { flex-wrap:wrap; gap:16px; } form { width:100%; margin:0; } }
-  @media(max-width:480px) { .cards { grid-template-columns:1fr; } nav { gap:2px; } nav button { padding:6px 9px; } .lead img { aspect-ratio:1.6; } }
+  :root{--navy:#142942;--deep:#0d2036;--cream:#f9f3e7;--orange:#ffba63;--rust:#9c3d22;--line:#d8ccbb}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--cream);color:var(--deep);font:16px/1.6 system-ui,sans-serif}
+  .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+  h1,h2,h3,p{margin:0}
+  h1,h2,h3{font-family:Georgia,serif;line-height:1.06}
+  h1{font-size:clamp(3.3rem,8vw,7rem);letter-spacing:-.065em;max-width:9ch}
+  h2{font-size:clamp(2.2rem,5vw,4rem);letter-spacing:-.045em}
+  h3{font-size:1.55rem}
+  a{color:inherit}
+  :focus-visible{outline:3px solid #ca6627;outline-offset:4px}
+  .skip{position:absolute;top:-100px;left:16px;background:white;padding:10px;z-index:3}
+  .skip:focus{top:12px}
+  header{background:var(--deep);color:var(--cream)}
+  .bar{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0}
+  .brand{font:bold 1.5rem Georgia,serif;text-decoration:none;white-space:nowrap}
+  nav,.actions,.amounts{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  nav a{padding:5px;text-decoration:none;font-weight:650}
+  nav a:hover,footer a:hover{text-decoration:underline}
+  .button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 16px;background:var(--orange);color:var(--deep);border:2px solid transparent;border-radius:5px;text-decoration:none;font:inherit;font-weight:750;cursor:pointer}
+  .button:hover{background:#ffd29c}
+  .outline{color:inherit;background:transparent;border-color:currentColor}
+  .outline:hover{background:var(--cream);color:var(--deep)}
+  .hero{background:var(--navy);color:var(--cream)}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+  .hero-copy{padding:clamp(35px,7vw,94px) clamp(14px,4vw,45px) clamp(42px,7vw,94px) 0}
+  .hero-photo{min-height:350px;margin:0;position:relative;overflow:hidden}
+  .hero-photo img{position:absolute;width:100%;height:100%;object-fit:cover}
+  .hero-photo figcaption{position:absolute;bottom:0;left:0;background:var(--deep);padding:4px 10px;font-size:.8rem;color:white}
+  .eyebrow{font-size:.875rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-bottom:12px;color:var(--rust)}
+  .hero .eyebrow,.dark .eyebrow{color:var(--orange)}
+  .hero p:not(.eyebrow),.section p:not(.eyebrow){margin-top:16px;max-width:60ch}
+  .actions,.amounts{margin-top:22px}
+  .vote{background:var(--orange);padding:25px 0}
+  .vote .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px}
+  .vote h2{font-size:clamp(1.55rem,4vw,2.4rem)}
+  .section{padding:clamp(45px,8vw,88px) 0}
+  .white{background:#fffdf8}
+  .dark{background:var(--navy);color:var(--cream)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:25px}
+  .card{background:#fffdf8;border:1px solid var(--line);border-top:5px solid var(--rust);padding:24px}
+  .card p{margin-top:10px!important}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  .split section+section{border-left:1px solid var(--line);padding-left:30px}
+  .donate{background:#edddc5}
+  .amounts button{background:#fffdf8;border-color:var(--deep);min-width:74px}
+  .amounts button:hover{background:var(--orange)}
+  footer{background:var(--deep);color:var(--cream);padding:25px 0}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+  dialog{background:var(--cream);color:var(--deep);border:1px solid var(--line);width:min(440px,calc(100% - 32px));padding:26px;border-radius:8px}
+  dialog::backdrop{background:#0d2036b0}
+  dialog p,dialog form{margin-top:16px}
+  @media(max-width:720px){
+    .hero-grid,.cards,.split{grid-template-columns:1fr}
+    .hero-photo{min-height:250px}
+    .bar{align-items:flex-start;flex-direction:column;gap:12px}
+    nav{gap:5px 12px}
+    .split section+section{border:0;border-top:1px solid var(--line);padding:26px 0 0}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
-<body>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
 <header>
-  <div class="wrap">
-    <div class="mast">
-      <a class="brand" href="./">Joseph Saby<span>.</span></a>
-      <form action="https://www.google.com/search" role="search">
-        <input type="search" name="q" aria-label="Search the web" placeholder="Search the web" required>
-        <button>Search</button>
-      </form>
-    </div>
-    <nav aria-label="Filter by topic">
-      <button type="button" data-topic="All" aria-pressed="true">Home</button>
-      <button type="button" data-topic="World" aria-pressed="false">World</button>
-      <button type="button" data-topic="Technology" aria-pressed="false">Technology</button>
-      <button type="button" data-topic="Sports" aria-pressed="false">Sports</button>
-      <button type="button" data-topic="Culture" aria-pressed="false">Culture</button>
+  <div class="wrap bar">
+    <a class="brand" href="#top">Campaign Name</a>
+    <nav aria-label="Main navigation">
+      <a href="#vote">Vote</a>
+      <a href="#priorities">Priorities</a>
+      <a href="#about">About</a>
+      <a href="#volunteer">Volunteer</a>
+      <a class="button" href="#donate">Donate</a>
     </nav>
   </div>
 </header>
-<main class="wrap">
-  <div class="intro"><h1>Explore the day</h1><p id="date"></p></div>
-  <div class="layout">
-    <section aria-label="Featured and topic links">
-      <article class="lead">
-        <img src="https://images.unsplash.com/photo-1702360373582-968d932ac789?auto=format&amp;fit=crop&amp;w=1450&amp;q=85" alt="A mountain lake reflecting evergreen forests and rocky peaks">
-        <div class="copy">
-          <p class="tag">Featured · Outdoors</p>
-          <h2><a href="https://www.nps.gov/romo/index.htm">Explore Rocky Mountain National Park</a></h2>
-          <p class="muted">Find trails, scenic drives, and trip-planning information from the National Park Service.</p>
+<main id="main">
+  <section class="hero" aria-labelledby="headline">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Campaign website template</p>
+        <h1 id="headline">Meet your candidate.</h1>
+        <p>Introduce your candidate, the office they’re running for, and what they hope to accomplish.</p>
+        <div class="actions">
+          <a class="button" href="#about">About the candidate</a>
+          <a class="button outline" href="#volunteer">Get involved</a>
         </div>
-      </article>
-      <h2 id="browse-title" aria-live="polite">Browse by topic</h2>
-      <div class="cards">
-        <article class="card" data-category="World"><img loading="lazy" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&amp;fit=crop&amp;w=650&amp;q=80" alt=""><div class="copy"><p class="tag">World</p><h3><a href="https://apnews.com/world-news">World news from AP</a></h3><p class="muted">Reporting from around the globe.</p></div></article>
-        <article class="card" data-category="Technology"><img loading="lazy" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=650&amp;q=80" alt=""><div class="copy"><p class="tag">Technology</p><h3><a href="https://www.theverge.com/tech">Technology from The Verge</a></h3><p class="muted">Coverage of devices, software, and the web.</p></div></article>
-        <article class="card" data-category="Sports"><img loading="lazy" src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&amp;fit=crop&amp;w=650&amp;q=80" alt=""><div class="copy"><p class="tag">Sports</p><h3><a href="https://www.espn.com/">Sports scores and coverage</a></h3><p class="muted">Find schedules, scores, and stories at ESPN.</p></div></article>
-        <article class="card" data-category="Culture"><img loading="lazy" src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&amp;fit=crop&amp;w=650&amp;q=80" alt=""><div class="copy"><p class="tag">Culture</p><h3><a href="https://www.si.edu/explore">Explore the Smithsonian</a></h3><p class="muted">Browse collections, exhibitions, and stories.</p></div></article>
       </div>
-    </section>
-    <aside aria-label="Quick links">
-      <section class="panel weather">
-        <h2>Local weather</h2>
-        <p class="muted">Look up a forecast by city or ZIP code.</p>
-        <a href="https://www.weather.gov/">National Weather Service</a>
-      </section>
-      <section class="panel">
-        <h2>Quick links</h2>
-        <a href="https://finance.yahoo.com/">Markets</a>
-        <a href="https://maps.google.com/">Maps</a>
-        <a href="https://www.nasa.gov/news/">NASA news</a>
-        <a href="https://mail.yahoo.com/">Yahoo Mail</a>
-      </section>
-    </aside>
+      <figure class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1570060362230-62bc5605eca2?auto=format&amp;fit=crop&amp;w=1300&amp;q=85" alt="A lake and evergreen forest below the Colorado Rockies">
+        <figcaption><a href="https://unsplash.com/photos/YBdMorO3mOQ">Sam Dellaporta / Unsplash</a></figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="vote" id="vote">
+    <div class="wrap">
+      <h2>Make a plan to vote</h2>
+      <a class="button outline" href="https://vote.gov/">Find official voting information</a>
+    </div>
+  </section>
+  <section class="section" id="priorities">
+    <div class="wrap">
+      <h2>Campaign priorities</h2>
+      <div class="cards">
+        <article class="card"><h3>Housing</h3><p>Describe the candidate’s approach to housing and affordability.</p></article>
+        <article class="card"><h3>Transportation</h3><p>Summarize the candidate’s plans for transit, streets, and mobility.</p></article>
+        <article class="card"><h3>Local services</h3><p>Highlight the public services the candidate plans to focus on.</p></article>
+      </div>
+    </div>
+  </section>
+  <div class="section white">
+    <div class="wrap split">
+      <section id="about"><h2>About the candidate</h2><p>Add a short biography covering the candidate’s background, community ties, and reasons for running.</p></section>
+      <section id="endorsements"><h2>Endorsements</h2><p>List confirmed endorsements here, with links to public statements when available.</p></section>
+    </div>
   </div>
+  <section class="section dark" id="volunteer">
+    <div class="wrap">
+      <h2>Volunteer</h2>
+      <p>Help with canvassing, phone calls, or community events.</p>
+      <div class="actions"><button class="button" id="signup" type="button">Volunteer signup</button></div>
+    </div>
+  </section>
+  <section class="section donate" id="donate">
+    <div class="wrap">
+      <h2>Support the campaign</h2>
+      <div class="amounts" aria-label="Example donation amounts">
+        <button class="button" type="button" data-amount="$5">$5</button>
+        <button class="button" type="button" data-amount="$25">$25</button>
+        <button class="button" type="button" data-amount="$50">$50</button>
+        <button class="button" type="button" data-amount="$100">$100</button>
+      </div>
+    </div>
+  </section>
 </main>
-<footer><div class="wrap">Joseph Saby · Photos from <a href="https://unsplash.com/">Unsplash</a></div></footer>
+<footer>
+  <div class="wrap"><span>Campaign Name · Website template</span><a href="#top">Back to top</a></div>
+</footer>
+<dialog aria-labelledby="dialog-title" aria-describedby="dialog-body">
+  <h3 id="dialog-title"></h3>
+  <p id="dialog-body"></p>
+  <form method="dialog"><button class="button" autofocus>Close</button></form>
+</dialog>
 <script>
-  document.querySelector('#date').textContent = new Intl.DateTimeFormat(undefined, {dateStyle:'full'}).format(new Date());
-  const buttons = document.querySelectorAll('[data-topic]');
-  const cards = document.querySelectorAll('[data-category]');
-  const title = document.querySelector('#browse-title');
-  const lead = document.querySelector('.lead');
-  buttons.forEach(button => button.addEventListener('click', () => {
-    const topic = button.dataset.topic;
-    const showAll = topic === 'All';
-    buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-    cards.forEach(card => { card.hidden = !showAll && card.dataset.category !== topic; });
-    lead.hidden = !showAll;
-    title.textContent = showAll ? 'Browse by topic' : topic;
-  }));
+  const dialog = document.querySelector('dialog');
+  const dialogTitle = document.querySelector('#dialog-title');
+  const dialogBody = document.querySelector('#dialog-body');
+  function showPreview(title, message) {
+    dialogTitle.textContent = title;
+    dialogBody.textContent = message;
+    dialog.showModal();
+  }
+  document.querySelector('#signup').addEventListener('click', () => {
+    showPreview('Volunteer signup', 'Add your campaign’s signup link to enable volunteer registration.');
+  });
+  document.querySelectorAll('[data-amount]').forEach(button => {
+    button.addEventListener('click', () => {
+      showPreview(button.dataset.amount + ' donation', 'Add your campaign’s fundraising link to accept donations.');
+    });
+  });
 </script>
 </body>
 </html>
